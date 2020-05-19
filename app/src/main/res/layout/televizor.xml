@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GenericItem">
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:backgroundTint="@color/cardview_light_background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="?attr/actionModeCloseDrawable"
+        />
+
+    <TextView
+        android:id="@+id/textView_Item"
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:layout_marginTop="52dp"
+        android:text="Tv"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Switch
+        android:id="@+id/switch2"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="124dp"
+        app:layout_constraintStart_toEndOf="@+id/textView_OnOff"
+        app:layout_constraintTop_toTopOf="@+id/textView_Item" />
+
+    <TextView
+        android:id="@+id/textView_OnOff"
+        android:layout_width="210dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="85dp"
+        android:text="Power: Off"
+        android:layout_marginLeft="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_Item" />
+
+    <TextView
+        android:id="@+id/temp"
+        android:layout_width="210dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="52dp"
+        android:text="Brightness: 50"
+        android:layout_marginLeft="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_OnOff" />
+
+    <TextView
+        android:id="@+id/speed"
+        android:layout_width="210dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="342dp"
+        android:text="Channel: 3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/etvolume"
+        android:layout_width="210dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="410dp"
+        android:text="Volume: 30"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="292dp"
+        android:layout_marginTop="52dp"
+        android:max="100"
+        android:min="0"
+        android:progress="50"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch2" />
+
+
+    <Button
+        android:id="@+id/decrease"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="252dp"
+        android:layout_marginTop="328dp"
+        android:text="-"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/integer_number"
+        android:layout_width="50dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="300dp"
+        android:layout_marginTop="320dp"
+        android:text="31"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/increase"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="328dp"
+        android:layout_marginEnd="16dp"
+        android:text="+"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/voolume_down"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="252dp"
+        android:layout_marginTop="400dp"
+        android:text="-"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/volume"
+        android:layout_width="50dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="300dp"
+        android:layout_marginTop="400dp"
+        android:text="30"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/volume_up"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="400dp"
+        android:layout_marginEnd="16dp"
+        android:text="+"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="36dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="Delete"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
