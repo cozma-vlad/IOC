@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText editText = (EditText)findViewById(R.id.editText);
+    private EditText editText;
 
     ArrayList<Item> itemList=new ArrayList<>();
     public static ItemAdapter itemAdapter;
@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         init();
 
         itemAdapter=new ItemAdapter(itemList,this);
+        editText = (EditText)findViewById(R.id.editText);
 
         final ListView listView=(ListView)findViewById(R.id.ItemListView);
         listView.setAdapter(itemAdapter);
@@ -82,7 +83,31 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        editText.addTextChangedListener(new TextWatcher() {
 
+            public void onTextChanged(CharSequence s, int start, int before,
+                                      int count) {
+                if(!s.equals("") ) {
+                    String search = editText.getText().toString().toLowerCase();
+                    ArrayList<Item> update=new ArrayList<>();
+
+                    for(int item=0; item < itemList.size(); item++) {
+                        if (itemList.get(item).Name.toString().toLowerCase().indexOf(search) != -1)
+                        {
+                            update.add(itemList.get(item));
+                        }
+                    }
+                    itemAdapter.ItemList = update;
+                    itemAdapter.notifyDataSetChanged();
+                }
+            }
+
+            public void beforeTextChanged(CharSequence s, int start, int count,
+                                          int after) {
+            }
+            public void afterTextChanged(Editable s) {
+            }
+        });
 
     }
 }
