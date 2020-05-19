@@ -12,6 +12,7 @@
         <activity android:name=".AirConditioner" />
         <activity android:name=".Television" />
         <activity android:name=".Lights" />
+        <activity android:name=".Hood" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
