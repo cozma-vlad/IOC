@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.ImageButton;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -22,6 +23,8 @@ public class Hood extends AppCompatActivity {
 
     private Button mbtDown;
     private Button mbtUp;
+
+    private ImageButton mBack;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -45,8 +48,18 @@ public class Hood extends AppCompatActivity {
 
         mswLight.setEnabled(false);
 
+        mBack = (ImageButton)findViewById(R.id.imageButton);
+
         mbtUp.setEnabled(false);
         mbtDown.setEnabled(false);
+
+        mBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
 
         mswPower.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override

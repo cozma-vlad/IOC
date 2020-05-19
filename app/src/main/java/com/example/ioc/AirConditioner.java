@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -23,6 +24,7 @@ public class AirConditioner extends AppCompatActivity {
 	private Button mBtnM;
 
 	private TextView mTxtSpeed;
+	private ImageButton mBack;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,8 @@ public class AirConditioner extends AppCompatActivity {
 
 		mTxtOnOff = (TextView)findViewById(R.id.textView_OnOff);
 		mTxtTemp = (TextView)findViewById(R.id.temp);
+
+		mBack = (ImageButton)findViewById(R.id.imageButton);
 
 		mTxtPwr = (TextView)findViewById(R.id.integer_number);
 		mTxtPwr.setText("3");
@@ -53,6 +57,14 @@ public class AirConditioner extends AppCompatActivity {
 		mBtnP.setEnabled(false);
 		mTxtPwr.setEnabled(false);
 		mTxtSpeed.setEnabled(false);
+
+
+		mBack.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				onBackPressed();
+			}
+		});
 
 		mSwOnOff.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 			@Override
