@@ -10,7 +10,7 @@ import android.widget.SeekBar;
 import android.widget.Switch;
 import android.widget.TextView;
 
-public class Televizor extends AppCompatActivity {
+public class Television extends AppCompatActivity {
 
 	private Switch mSwPwr;
 	private TextView mTxtPwr;
@@ -32,7 +32,7 @@ public class Televizor extends AppCompatActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.televizor);
+		setContentView(R.layout.television);
 		String Activity_title = getIntent().getStringExtra("ACTIVITY_TITLE");
 		TextView activ_title=(TextView)findViewById(R.id.item_name);
 		activ_title.setText(Activity_title);

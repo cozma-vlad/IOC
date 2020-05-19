@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                 switch (a.Type)
                 {
                     case 1:
-                        intent = new Intent(getApplicationContext(),Televizor.class);
+                        intent = new Intent(getApplicationContext(),Television.class);
                         intent.putExtra("ACTIVITY_TITLE", a.Name);
                         startActivity(intent);
                         break;
@@ -51,12 +51,12 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(intent);
                         break;
                     case 3:
-                        intent = new Intent(getApplicationContext(),Televizor.class);
+                        intent = new Intent(getApplicationContext(),Hood.class);
                         intent.putExtra("ACTIVITY_TITLE", a.Name);
                         startActivity(intent);
                         break;
                     case 4:
-                        intent = new Intent(getApplicationContext(),Televizor.class);
+                        intent = new Intent(getApplicationContext(),Lights.class);
                         intent.putExtra("ACTIVITY_TITLE", a.Name);
                         startActivity(intent);
                         break;
