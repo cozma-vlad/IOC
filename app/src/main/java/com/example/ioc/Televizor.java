@@ -33,6 +33,9 @@ public class Televizor extends AppCompatActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.televizor);
+		String Activity_title = getIntent().getStringExtra("ACTIVITY_TITLE");
+		TextView activ_title=(TextView)findViewById(R.id.item_name);
+		activ_title.setText(Activity_title);
 
 		mSwPwr = (Switch)findViewById(R.id.switch2);
 		mTxtPwr = (TextView)findViewById(R.id.textView_OnOff);

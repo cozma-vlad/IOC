@@ -16,9 +16,9 @@ public class MainActivity extends AppCompatActivity {
     public static ItemAdapter itemAdapter;
 
     public void init(){
-        itemList.add(new Item("Hood",2));
+        itemList.add(new Item("Hood",3));
         itemList.add(new Item("Television",1));
-        itemList.add(new Item("Air Conditioner",3));
+        itemList.add(new Item("Air Conditioner",2));
         itemList.add(new Item("Lights",4));
     }
 
@@ -37,22 +37,27 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long arg3) {
                 view.setSelected(true);
                 Intent intent;
-                switch (itemList.get(position).Type)
+                Item a=itemList.get(position);
+                switch (a.Type)
                 {
                     case 1:
                         intent = new Intent(getApplicationContext(),Televizor.class);
+                        intent.putExtra("ACTIVITY_TITLE", a.Name);
                         startActivity(intent);
                         break;
                     case 2:
                         intent = new Intent(getApplicationContext(),AirConditioner.class);
+                        intent.putExtra("ACTIVITY_TITLE", a.Name);
                         startActivity(intent);
                         break;
                     case 3:
                         intent = new Intent(getApplicationContext(),Televizor.class);
+                        intent.putExtra("ACTIVITY_TITLE", a.Name);
                         startActivity(intent);
                         break;
                     case 4:
                         intent = new Intent(getApplicationContext(),Televizor.class);
+                        intent.putExtra("ACTIVITY_TITLE", a.Name);
                         startActivity(intent);
                         break;
                 }

@@ -27,6 +27,9 @@ public class AirConditioner extends AppCompatActivity {
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.air_conditioner);
+		String Activity_title = getIntent().getStringExtra("ACTIVITY_TITLE");
+		TextView activ_title=(TextView)findViewById(R.id.item_name);
+		activ_title.setText(Activity_title);
 
 		mTxtOnOff = (TextView)findViewById(R.id.textView_OnOff);
 		mTxtTemp = (TextView)findViewById(R.id.temp);
