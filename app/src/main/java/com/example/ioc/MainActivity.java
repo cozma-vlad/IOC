@@ -83,30 +83,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        editText.addTextChangedListener(new TextWatcher() {
-//
-//            public void onTextChanged(CharSequence s, int start, int before,
-//                                      int count) {
-//                if(!s.equals("") ) {
-//                    String search = editText.getText().toString();
-//                    ArrayList<Item> update=new ArrayList<>();
-//
-//                    for(int item=0; item < itemList.size(); item++) {
-//                        if (itemList.get(item).toString().indexOf(search) == 0)
-//                        {
-//                            update.add(itemList.get(item));
-//                        }
-//                    }
-//                    itemAdapter = new ItemAdapter(update,getApplicationContext());
-//                    itemAdapter.notifyDataSetChanged();
-//                }
-//            }
-//
-//            public void beforeTextChanged(CharSequence s, int start, int count,
-//                                          int after) {
-//            }
-//            public void afterTextChanged(Editable s) {
-//            }
-//        });
+
     }
 }
