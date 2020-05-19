@@ -33,16 +33,21 @@ public class MainActivity extends AppCompatActivity {
         itemList.add(new Item("Television",1));
         itemList.add(new Item("Air Conditioner",2));
         itemList.add(new Item("Lights",4));
+//
+//        itemList.add(new Item("Hood2",3));
+//        itemList.add(new Item("Television2",1));
+//        itemList.add(new Item("Air Conditioner2",2));
+//        itemList.add(new Item("Lights2",4));
+//
+//        itemList.add(new Item("Hood3",3));
+//        itemList.add(new Item("Television3",1));
+//        itemList.add(new Item("Air Conditioner3",2));
+//        itemList.add(new Item("Lights3",4));
 
-        itemList.add(new Item("Hood2",3));
-        itemList.add(new Item("Television2",1));
-        itemList.add(new Item("Air Conditioner2",2));
-        itemList.add(new Item("Lights2",4));
-
-        itemList.add(new Item("Hood3",3));
-        itemList.add(new Item("Television3",1));
-        itemList.add(new Item("Air Conditioner3",2));
-        itemList.add(new Item("Lights3",4));
+        inactiveList.add(new Item("Hood",3));
+        inactiveList.add(new Item("Television",1));
+        inactiveList.add(new Item("Air Conditioner",2));
+        inactiveList.add(new Item("Lights",4));
     }
 
 
