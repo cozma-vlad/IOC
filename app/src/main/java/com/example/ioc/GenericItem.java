@@ -11,4 +11,5 @@ public class GenericItem extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.generic_item);
     }
+//    push item
 }
