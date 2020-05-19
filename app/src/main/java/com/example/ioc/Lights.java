@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
@@ -23,6 +24,8 @@ public class Lights extends AppCompatActivity {
 	private SeekBar mSbBathroom;
 
 	private ImageButton mBack;
+	private Button mDel;
+	private int mPos;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +47,8 @@ public class Lights extends AppCompatActivity {
 		mSbLiving = (SeekBar)findViewById(R.id.sbLiving);
 		mSbBathroom = (SeekBar)findViewById(R.id.sbBathroom);
 
+		mDel = (Button)findViewById(R.id.button);
+
 		mSbBedroom.setEnabled(false);
 		mSbKitchen.setEnabled(false);
 		mSbLiving.setEnabled(false);
@@ -52,9 +57,10 @@ public class Lights extends AppCompatActivity {
 		mBack.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				onBackPressed();
+				finishActivity(0);
 			}
 		});
+		mPos = getIntent().getIntExtra("ACTIVITY_NAME", 0);
 
 
 		mSwBedroom.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -84,5 +90,15 @@ public class Lights extends AppCompatActivity {
 				mSbBathroom.setEnabled(isChecked);
 			}
 		});
+
+		mDel.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				MainActivity.itemAdapter.ItemList.remove(mPos);
+				MainActivity.itemAdapter.notifyDataSetChanged();
+				onBackPressed();
+			}
+		});
+
 	}
 }

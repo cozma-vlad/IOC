@@ -26,6 +26,9 @@ public class AirConditioner extends AppCompatActivity {
 	private TextView mTxtSpeed;
 	private ImageButton mBack;
 
+	private Button mDel;
+	private int mPos;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
@@ -39,6 +42,7 @@ public class AirConditioner extends AppCompatActivity {
 		mTxtTemp = (TextView)findViewById(R.id.temp);
 
 		mBack = (ImageButton)findViewById(R.id.imageButton);
+		mDel = (Button)findViewById(R.id.button);
 
 		mTxtPwr = (TextView)findViewById(R.id.integer_number);
 		mTxtPwr.setText("3");
@@ -59,12 +63,23 @@ public class AirConditioner extends AppCompatActivity {
 		mTxtSpeed.setEnabled(false);
 
 
+		mPos = getIntent().getIntExtra("ACTIVITY_NAME", 0);
 		mBack.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				onBackPressed();
 			}
 		});
+
+		mDel.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				MainActivity.itemAdapter.ItemList.remove(mPos);
+				MainActivity.itemAdapter.notifyDataSetChanged();
+				onBackPressed();
+			}
+		});
+
 
 		mSwOnOff.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 			@Override

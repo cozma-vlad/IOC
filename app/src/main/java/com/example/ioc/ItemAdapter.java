@@ -2,11 +2,13 @@ package com.example.ioc;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -47,6 +49,5 @@ public class ItemAdapter extends BaseAdapter {
 
         return viewItem;
     }
-
 
 }
