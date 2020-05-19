@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GenericItem">
+    tools:context=".Televizor">
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -63,17 +63,17 @@
         android:layout_height="30dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="342dp"
-        android:text="Channel: 3"
+        android:text="Channel:"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/etvolume"
+        android:id="@+id/txt_Volume"
         android:layout_width="210dp"
         android:layout_height="30dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="410dp"
-        android:text="Volume: 30"
+        android:text="Volume:"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -123,7 +123,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/voolume_down"
+        android:id="@+id/volume_down"
         android:layout_width="40dp"
         android:layout_height="50dp"
         android:layout_marginStart="252dp"

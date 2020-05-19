@@ -1,0 +1,123 @@
+package com.example.ioc;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.SeekBar;
+import android.widget.Switch;
+import android.widget.TextView;
+
+public class Televizor extends AppCompatActivity {
+
+	private Switch mSwPwr;
+	private TextView mTxtPwr;
+
+	private TextView mTxtBright;
+	private SeekBar mSbBright;
+
+	private TextView mTxtCh;
+	private Button mBtnChP;
+	private Button mBtnChM;
+
+	private TextView mTxtVol;
+	private Button mBtnVolP;
+	private Button mBtnVolM;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.televizor);
+
+		mSwPwr = (Switch)findViewById(R.id.switch2);
+		mTxtPwr = (TextView)findViewById(R.id.textView_OnOff);
+
+		mTxtBright = (TextView)findViewById(R.id.temp);
+		mSbBright = (SeekBar)findViewById(R.id.seekBar);
+
+		mTxtCh = (TextView)findViewById(R.id.integer_number);
+		mBtnChM = (Button)findViewById(R.id.decrease);
+		mBtnChP = (Button)findViewById(R.id.increase);
+
+		mTxtVol = (TextView)findViewById(R.id.volume);
+		mBtnVolP =(Button)findViewById(R.id.volume_up);
+		mBtnVolM =(Button)findViewById(R.id.volume_down);
+
+
+		mSwPwr.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+				if(isChecked)
+					mTxtPwr.setText("Power: On");
+				else
+					mTxtPwr.setText("Power: Off");
+			}
+		});
+
+
+		mSbBright.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+			@Override
+			public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+				mTxtBright.setText("Brightness: " + progress);
+			}
+
+			@Override
+			public void onStartTrackingTouch(SeekBar seekBar) {
+
+			}
+
+			@Override
+			public void onStopTrackingTouch(SeekBar seekBar) {
+
+			}
+		});
+
+		mBtnChP.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				mTxtCh.setText(String.valueOf(Integer.parseInt(mTxtCh.getText().toString()) + 1));
+				if(mTxtCh.getText().equals("41"))
+					mTxtCh.setText("1");
+			}
+		});
+
+		mBtnChM.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				mTxtCh.setText(String.valueOf(Integer.parseInt(mTxtCh.getText().toString()) - 1));
+
+				if(mTxtCh.getText().equals("0"))
+					mTxtCh.setText("40");
+			}
+		});
+
+		mBtnVolP.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				mTxtVol.setText(String.valueOf(Integer.parseInt(mTxtVol.getText().toString()) + 1));
+				if(mTxtVol.getText().equals("99"))
+					mBtnVolP.setEnabled(false);
+				else{
+					mBtnVolP.setEnabled(true);
+					mBtnVolM.setEnabled(true);
+				}
+			}
+		});
+
+		mBtnVolM.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				mTxtVol.setText(String.valueOf(Integer.parseInt(mTxtVol.getText().toString()) - 1));
+				if(mTxtVol.getText().equals("0"))
+					mBtnVolM.setEnabled(false);
+				else{
+					mBtnVolP.setEnabled(true);
+					mBtnVolM.setEnabled(true);
+				}
+			}
+		});
+	}
+}
