@@ -12,16 +12,11 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView
+        <Button
             android:id="@+id/text1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16dp" />
+            android:backgroundTint="#03F4D0" />
 
-        <TextView
-            android:id="@+id/text2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="16dp" />
     </LinearLayout>
 </LinearLayout>

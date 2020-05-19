@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.List;
@@ -38,12 +39,10 @@ public class ItemAdapter extends BaseAdapter {
         LayoutInflater layoutInflater = LayoutInflater.from(context);
         View viewItem = layoutInflater.inflate(R.layout.item_layout, parent, false);
 
-        TextView t1=viewItem.findViewById(R.id.text1);
-        TextView t2=viewItem.findViewById(R.id.text2);
+        Button t1=viewItem.findViewById(R.id.text1);
 
         Item i=ItemList.get(position);
         t1.setText(i.Name);
-        t2.setText(i.Name);
 
 
         return viewItem;
