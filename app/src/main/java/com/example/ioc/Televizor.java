@@ -84,7 +84,6 @@ public class Televizor extends AppCompatActivity {
 				else {
 					mTxtPwr.setText("Power: Off");
 
-					mSwPwr.setEnabled(false);
 					mSbBright.setEnabled(false);
 					mBtnChM.setEnabled(false);
 					mBtnChP.setEnabled(false);
