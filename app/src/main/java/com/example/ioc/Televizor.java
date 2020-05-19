@@ -67,14 +67,19 @@ public class Televizor extends AppCompatActivity {
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
+
 				if(isChecked) {
 					mTxtPwr.setText("Power: On");
 
 					mSbBright.setEnabled(true);
 					mBtnChM.setEnabled(true);
 					mBtnChP.setEnabled(true);
-					mBtnVolM.setEnabled(true);
-					mBtnVolP.setEnabled(true);
+
+					if(!mTxtVol.getText().equals("0"))
+						mBtnVolM.setEnabled(true);
+					if(!mTxtVol.getText().equals("99"))
+						mBtnVolP.setEnabled(true);
+
 					mTxtVol.setEnabled(true);
 					mTxtCh.setEnabled(true);
 					mTxtBright.setEnabled(true);
@@ -84,7 +89,6 @@ public class Televizor extends AppCompatActivity {
 				else {
 					mTxtPwr.setText("Power: Off");
 
-					mSwPwr.setEnabled(false);
 					mSbBright.setEnabled(false);
 					mBtnChM.setEnabled(false);
 					mBtnChP.setEnabled(false);
