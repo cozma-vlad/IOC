@@ -28,10 +28,9 @@
         android:hint="@android:string/search_go"
         android:inputType="textPersonName"
         android:padding="5dp" />
-    <ListView
-        android:id="@+id/listViewActive"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" >
 
-    </ListView>
+    <ListView
+        android:id="@+id/ItemListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </LinearLayout>
