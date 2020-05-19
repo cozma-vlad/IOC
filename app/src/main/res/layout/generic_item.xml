@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Config">
+    tools:context=".GenericItem">
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -16,38 +16,45 @@
         app:srcCompat="?attr/actionModeCloseDrawable" />
 
     <TextView
-        android:id="@+id/textView_Logo"
+        android:id="@+id/textView_Item"
         android:layout_width="match_parent"
         android:layout_height="43dp"
         android:layout_marginTop="52dp"
-        android:text="LOGO"
+        android:text="ITEM"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Switch
+        android:id="@+id/switch2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="124dp"
+        android:layout_marginEnd="48dp"
+        app:layout_constraintEnd_toStartOf="@+id/textView_OnOff"
+        app:layout_constraintTop_toTopOf="@+id/textView_Item" />
+
     <TextView
-        android:id="@+id/textView_Cafetiera"
+        android:id="@+id/textView_OnOff"
+        android:layout_width="210dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="83dp"
+        android:text="Off"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_Item" />
+
+    <Button
+        android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
-        android:background="@color/cardview_dark_background"
-        android:text="Cafetiera Tefal Subito"
-        android:textColor="#FFF"
-        android:textSize="24sp"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
+        android:layout_marginBottom="36dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="Delete"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_Logo" />
-
-    <ExpandableListView
-        android:layout_width="406dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView_Cafetiera"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
