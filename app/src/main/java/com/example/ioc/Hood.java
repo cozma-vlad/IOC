@@ -1,5 +1,6 @@
 package com.example.ioc;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,11 +26,17 @@ public class Hood extends AppCompatActivity {
     private Button mbtUp;
 
     private ImageButton mBack;
+    private Button mDel;
+
+    private int mPos;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.hood);
+
+
+        mPos = getIntent().getIntExtra("ACTIVITY_NAME", 0);
 
         mtvPower = (TextView)findViewById(R.id.tvPower);
         mtvLight = (TextView)findViewById(R.id.tvLight);
@@ -41,6 +48,8 @@ public class Hood extends AppCompatActivity {
 
         mbtDown = (Button)findViewById(R.id.btDown);
         mbtUp = (Button)findViewById(R.id.btUp);
+
+        mDel = (Button)findViewById(R.id.button);
 
         mtvLight.setEnabled(false);
         mtvLevel.setEnabled(false);
@@ -60,6 +69,14 @@ public class Hood extends AppCompatActivity {
             }
         });
 
+        mDel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity.itemAdapter.ItemList.remove(mPos);
+                MainActivity.itemAdapter.notifyDataSetChanged();
+                onBackPressed();
+            }
+        });
 
         mswPower.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override

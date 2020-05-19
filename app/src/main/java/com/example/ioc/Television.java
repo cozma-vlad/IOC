@@ -32,6 +32,9 @@ public class Television extends AppCompatActivity {
 	private TextView mTxtBrightness;
 	private TextView mTxtChannel;
 
+	private Button mDel;
+	private int mPos;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -56,6 +59,8 @@ public class Television extends AppCompatActivity {
 		mBtnVolP =(Button)findViewById(R.id.volume_up);
 		mBtnVolM =(Button)findViewById(R.id.volume_down);
 
+		mDel = (Button)findViewById(R.id.button);
+
 		mTxtBrightness = (TextView)findViewById(R.id.speed);
 		mTxtChannel = (TextView)findViewById(R.id.txt_Volume);
 
@@ -70,7 +75,7 @@ public class Television extends AppCompatActivity {
 		mTxtBrightness.setEnabled(false);
 		mTxtChannel.setEnabled(false);
 
-
+		mPos = getIntent().getIntExtra("ACTIVITY_NAME", 0);
 		mBack.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -114,6 +119,15 @@ public class Television extends AppCompatActivity {
 					mTxtBrightness.setEnabled(false);
 					mTxtChannel.setEnabled(false);
 				}
+			}
+		});
+
+		mDel.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				MainActivity.itemAdapter.ItemList.remove(mPos);
+				MainActivity.itemAdapter.notifyDataSetChanged();
+				onBackPressed();
 			}
 		});
 
