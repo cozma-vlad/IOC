@@ -22,6 +22,8 @@ public class AirConditioner extends AppCompatActivity {
 	private Button mBtnP;
 	private Button mBtnM;
 
+	private TextView mTxtSpeed;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 
@@ -40,14 +42,44 @@ public class AirConditioner extends AppCompatActivity {
 		mBtnM = (Button)findViewById(R.id.decrease);
 		mBtnP = (Button)findViewById(R.id.increase);
 
+		mTxtSpeed = (TextView)findViewById(R.id.speed);
+
+		mTxtTemp.setEnabled(false);
+		mSbTemp.setEnabled(false);
+		mBtnM.setEnabled(false);
+		mBtnP.setEnabled(false);
+		mTxtPwr.setEnabled(false);
+		mTxtSpeed.setEnabled(false);
+
 		mSwOnOff.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
-				if(isChecked)
+				if(isChecked) {
 					mTxtOnOff.setText("Power: On");
-				else
+
+					mTxtTemp.setEnabled(true);
+					mSbTemp.setEnabled(true);
+
+					if(!mTxtPwr.getText().equals("1"))
+						mBtnM.setEnabled(true);
+
+					if(!mTxtPwr.getText().equals("5"))
+						mBtnP.setEnabled(true);
+
+					mTxtPwr.setEnabled(true);
+					mTxtSpeed.setEnabled(true);
+				}
+				else {
 					mTxtOnOff.setText("Power: Off");
+
+					mTxtTemp.setEnabled(false);
+					mSbTemp.setEnabled(false);
+					mBtnM.setEnabled(false);
+					mBtnP.setEnabled(false);
+					mTxtPwr.setEnabled(false);
+					mTxtSpeed.setEnabled(false);
+				}
 			}
 		});
 
@@ -73,12 +105,11 @@ public class AirConditioner extends AppCompatActivity {
 			@Override
 			public void onClick(View v) {
 				mTxtPwr.setText(String.valueOf(Integer.parseInt(mTxtPwr.getText().toString()) + 1));
-				if(mTxtPwr.getText().equals("5")) {
+				if(mTxtPwr.getText().equals("5"))
 					mBtnP.setEnabled(false);
+
+				else{
 					mBtnM.setEnabled(true);
-				}
-				if(mTxtPwr.getText().equals("1")) {
-					mBtnM.setEnabled(false);
 					mBtnP.setEnabled(true);
 				}
 			}
@@ -88,14 +119,13 @@ public class AirConditioner extends AppCompatActivity {
 			@Override
 			public void onClick(View v) {
 				mTxtPwr.setText(String.valueOf(Integer.parseInt(mTxtPwr.getText().toString()) - 1));
-				if(mTxtPwr.getText().equals("1")) {
+				if(mTxtPwr.getText().equals("1"))
 					mBtnM.setEnabled(false);
-					mBtnP.setEnabled(true);
-				}
-				if(mTxtPwr.getText().equals("5")) {
-					mBtnP.setEnabled(false);
-					mBtnM.setEnabled(true);
-				}
+
+				else{
+						mBtnM.setEnabled(true);
+						mBtnP.setEnabled(true);
+					}
 			}
 		});
 	}
