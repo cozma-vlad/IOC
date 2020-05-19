@@ -30,6 +30,9 @@ public class Hood extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.hood);
+        String Activity_title = getIntent().getStringExtra("ACTIVITY_TITLE");
+        TextView activ_title=(TextView)findViewById(R.id.item_name);
+        activ_title.setText(Activity_title);
 
         mtvPower = (TextView)findViewById(R.id.tvPower);
         mtvLight = (TextView)findViewById(R.id.tvLight);

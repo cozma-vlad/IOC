@@ -8,6 +8,7 @@ import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.Switch;
+import android.widget.TextView;
 
 public class Lights extends AppCompatActivity {
 
@@ -27,6 +28,9 @@ public class Lights extends AppCompatActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.lights);
+		String Activity_title = getIntent().getStringExtra("ACTIVITY_TITLE");
+		TextView activ_title=(TextView)findViewById(R.id.item_name);
+		activ_title.setText(Activity_title);
 
 		mSwBedroom = (Switch)findViewById(R.id.swBedroom);
 		mSwKitcken = (Switch)findViewById(R.id.swPower);
