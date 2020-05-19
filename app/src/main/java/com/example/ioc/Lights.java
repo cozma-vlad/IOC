@@ -3,7 +3,9 @@ package com.example.ioc;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.Switch;
 
@@ -19,6 +21,8 @@ public class Lights extends AppCompatActivity {
 	private SeekBar mSbLiving;
 	private SeekBar mSbBathroom;
 
+	private ImageButton mBack;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -29,6 +33,8 @@ public class Lights extends AppCompatActivity {
 		mSwLiving = (Switch)findViewById(R.id.swLiving);
 		mSwBathroom = (Switch)findViewById(R.id.swBathroom);
 
+		mBack = (ImageButton)findViewById(R.id.imageButton);
+
 		mSbBedroom = (SeekBar) findViewById(R.id.sbBedroom);
 		mSbKitchen = (SeekBar)findViewById(R.id.sbKitchen);
 		mSbLiving = (SeekBar)findViewById(R.id.sbLiving);
@@ -38,6 +44,14 @@ public class Lights extends AppCompatActivity {
 		mSbKitchen.setEnabled(false);
 		mSbLiving.setEnabled(false);
 		mSbBathroom.setEnabled(false);
+
+		mBack.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				onBackPressed();
+			}
+		});
+
 
 		mSwBedroom.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 			@Override
