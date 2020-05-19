@@ -26,6 +26,9 @@ public class Televizor extends AppCompatActivity {
 	private Button mBtnVolP;
 	private Button mBtnVolM;
 
+	private TextView mTxtBrightness;
+	private TextView mTxtChannel;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -45,15 +48,54 @@ public class Televizor extends AppCompatActivity {
 		mBtnVolP =(Button)findViewById(R.id.volume_up);
 		mBtnVolM =(Button)findViewById(R.id.volume_down);
 
+		mTxtBrightness = (TextView)findViewById(R.id.speed);
+		mTxtChannel = (TextView)findViewById(R.id.txt_Volume);
+
+		mSbBright.setEnabled(false);
+		mBtnChM.setEnabled(false);
+		mBtnChP.setEnabled(false);
+		mBtnVolM.setEnabled(false);
+		mBtnVolP.setEnabled(false);
+		mTxtVol.setEnabled(false);
+		mTxtCh.setEnabled(false);
+		mTxtBright.setEnabled(false);
+		mTxtBrightness.setEnabled(false);
+		mTxtChannel.setEnabled(false);
+
 
 		mSwPwr.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
-				if(isChecked)
+				if(isChecked) {
 					mTxtPwr.setText("Power: On");
-				else
+
+					mSbBright.setEnabled(true);
+					mBtnChM.setEnabled(true);
+					mBtnChP.setEnabled(true);
+					mBtnVolM.setEnabled(true);
+					mBtnVolP.setEnabled(true);
+					mTxtVol.setEnabled(true);
+					mTxtCh.setEnabled(true);
+					mTxtBright.setEnabled(true);
+					mTxtBrightness.setEnabled(true);
+					mTxtChannel.setEnabled(true);
+				}
+				else {
 					mTxtPwr.setText("Power: Off");
+
+					mSwPwr.setEnabled(false);
+					mSbBright.setEnabled(false);
+					mBtnChM.setEnabled(false);
+					mBtnChP.setEnabled(false);
+					mBtnVolM.setEnabled(false);
+					mBtnVolP.setEnabled(false);
+					mTxtVol.setEnabled(false);
+					mTxtCh.setEnabled(false);
+					mTxtBright.setEnabled(false);
+					mTxtBrightness.setEnabled(false);
+					mTxtChannel.setEnabled(false);
+				}
 			}
 		});
 
