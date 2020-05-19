@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private int listselector=1;
     private EditText editText;
     public static ItemAdapter itemAdapter;
+    public String operation="del";
 
     public void init(){
         Context ctx = getApplicationContext();
@@ -39,10 +40,10 @@ public class MainActivity extends AppCompatActivity {
         itemList.add(new Item("Air Conditioner2",2));
         itemList.add(new Item("Lights2",4));
 
-        itemList.add(new Item("Hood3",3));
-        itemList.add(new Item("Television3",1));
-        itemList.add(new Item("Air Conditioner3",2));
-        itemList.add(new Item("Lights3",4));
+        inactiveList.add(new Item("Hood3",3));
+        inactiveList.add(new Item("Television3",1));
+        inactiveList.add(new Item("Air Conditioner3",2));
+        inactiveList.add(new Item("Lights3",4));
     }
 
 
@@ -68,12 +69,14 @@ public class MainActivity extends AppCompatActivity {
                     itemAdapter.notifyDataSetChanged();
                     fab.setImageResource(R.drawable.ic_close_black_24dp);
                     listselector=2;
+                    operation="add";
                 }else{
                     itemAdapter.ItemList=itemList;
                     listView.setBackgroundColor(getResources().getColor(R.color.default_color));
                     itemAdapter.notifyDataSetChanged();
                     fab.setImageResource(R.drawable.ic_add_black_24dp);
                     listselector=1;
+                    operation="del";
 
                 }
             }
@@ -92,24 +95,28 @@ public class MainActivity extends AppCompatActivity {
                     case 1:
                         intent = new Intent(getApplicationContext(), Television.class);
                         intent.putExtra("ACTIVITY_NAME", position);
+                        intent.putExtra("ACTIVITY_OPERATION", operation);
                         intent.putExtra("ACTIVITY_TITLE", a.Name);
                         startActivity(intent);
                         break;
                     case 2:
                         intent = new Intent(getApplicationContext(), AirConditioner.class);
                         intent.putExtra("ACTIVITY_NAME", position);
+                        intent.putExtra("ACTIVITY_OPERATION", operation);
                         intent.putExtra("ACTIVITY_TITLE", a.Name);
                         startActivity(intent);
                         break;
                     case 3:
                         intent = new Intent(getApplicationContext(), Hood.class);
                         intent.putExtra("ACTIVITY_NAME", position);
+                        intent.putExtra("ACTIVITY_OPERATION", operation);
                         intent.putExtra("ACTIVITY_TITLE", a.Name);
                         startActivity(intent);
                         break;
                     case 4:
                         intent = new Intent(getApplicationContext(), Lights.class);
                         intent.putExtra("ACTIVITY_NAME", position);
+                        intent.putExtra("ACTIVITY_OPERATION", operation);
                         intent.putExtra("ACTIVITY_TITLE", a.Name);
                         startActivity(intent);
                         break;

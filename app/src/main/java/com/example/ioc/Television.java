@@ -34,6 +34,7 @@ public class Television extends AppCompatActivity {
 
 	private Button mDel;
 	private int mPos;
+	private String mOperation;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +75,9 @@ public class Television extends AppCompatActivity {
 		mTxtBright.setEnabled(false);
 		mTxtBrightness.setEnabled(false);
 		mTxtChannel.setEnabled(false);
+
+		mOperation = getIntent().getStringExtra("ACTIVITY_OPERATION");
+
 
 		mPos = getIntent().getIntExtra("ACTIVITY_NAME", 0);
 		mBack.setOnClickListener(new View.OnClickListener() {
@@ -125,9 +129,13 @@ public class Television extends AppCompatActivity {
 		mDel.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				MainActivity.itemAdapter.ItemList.remove(mPos);
-				MainActivity.itemAdapter.notifyDataSetChanged();
-				onBackPressed();
+				if(mOperation=="del") {
+					MainActivity.itemAdapter.ItemList.remove(mPos);
+					MainActivity.itemAdapter.notifyDataSetChanged();
+					onBackPressed();
+				}else{
+					MainActivity.itemAdapter.ItemList.add(new Item())
+				}
 			}
 		});
 
