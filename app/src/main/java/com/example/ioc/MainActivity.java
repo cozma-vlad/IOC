@@ -4,13 +4,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+
+    private EditText editText = (EditText)findViewById(R.id.editText);
 
     ArrayList<Item> itemList=new ArrayList<>();
     public static ItemAdapter itemAdapter;
@@ -20,6 +25,20 @@ public class MainActivity extends AppCompatActivity {
         itemList.add(new Item("Television",1));
         itemList.add(new Item("Air Conditioner",2));
         itemList.add(new Item("Lights",4));
+
+        itemList.add(new Item("Hood",3));
+        itemList.add(new Item("Television",1));
+        itemList.add(new Item("Air Conditioner",2));
+        itemList.add(new Item("Lights",4));
+        itemList.add(new Item("Hood",3));
+        itemList.add(new Item("Television",1));
+        itemList.add(new Item("Air Conditioner",2));
+        itemList.add(new Item("Lights",4));
+        itemList.add(new Item("Hood",3));
+        itemList.add(new Item("Television",1));
+        itemList.add(new Item("Air Conditioner",2));
+        itemList.add(new Item("Lights",4));
+
     }
 
     @Override
@@ -30,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
         itemAdapter=new ItemAdapter(itemList,this);
 
-        ListView listView=(ListView)findViewById(R.id.ItemListView);
+        final ListView listView=(ListView)findViewById(R.id.ItemListView);
         listView.setAdapter(itemAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -63,5 +82,31 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+//        editText.addTextChangedListener(new TextWatcher() {
+//
+//            public void onTextChanged(CharSequence s, int start, int before,
+//                                      int count) {
+//                if(!s.equals("") ) {
+//                    String search = editText.getText().toString();
+//                    ArrayList<Item> update=new ArrayList<>();
+//
+//                    for(int item=0; item < itemList.size(); item++) {
+//                        if (itemList.get(item).toString().indexOf(search) == 0)
+//                        {
+//                            update.add(itemList.get(item));
+//                        }
+//                    }
+//                    itemAdapter = new ItemAdapter(update,getApplicationContext());
+//                    itemAdapter.notifyDataSetChanged();
+//                }
+//            }
+//
+//            public void beforeTextChanged(CharSequence s, int start, int count,
+//                                          int after) {
+//            }
+//            public void afterTextChanged(Editable s) {
+//            }
+//        });
     }
 }

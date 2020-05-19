@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity" >
+    tools:context=".MainActivity"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
 
 
 
@@ -17,9 +19,8 @@
 
     <EditText
         android:id="@+id/editText"
-        android:layout_width="match_parent"
+        android:layout_width="184dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
         android:layout_marginTop="5dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="5dp"
@@ -27,7 +28,8 @@
         android:ems="10"
         android:hint="@android:string/search_go"
         android:inputType="textPersonName"
-        android:padding="5dp" />
+        android:padding="5dp"
+        />
 
     <ListView
         android:id="@+id/ItemListView"
