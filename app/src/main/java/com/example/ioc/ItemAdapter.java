@@ -39,7 +39,7 @@ public class ItemAdapter extends BaseAdapter {
         LayoutInflater layoutInflater = LayoutInflater.from(context);
         View viewItem = layoutInflater.inflate(R.layout.item_layout, parent, false);
 
-        Button t1=viewItem.findViewById(R.id.text1);
+        TextView t1=viewItem.findViewById(R.id.text1);
 
         Item i=ItemList.get(position);
         t1.setText(i.Name);
@@ -47,5 +47,6 @@ public class ItemAdapter extends BaseAdapter {
 
         return viewItem;
     }
+
 
 }
