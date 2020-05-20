@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long arg3) {
                 view.setSelected(true);
                 Intent intent;
-                Item a = itemList.get(position);
+                Item a = itemAdapter.ItemList.get(position);
                 switch (a.Type) {
                     case 1:
                         intent = new Intent(getApplicationContext(), Television.class);
