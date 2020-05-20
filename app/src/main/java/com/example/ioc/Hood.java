@@ -1,5 +1,6 @@
 package com.example.ioc;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Hood extends AppCompatActivity {
@@ -30,7 +32,6 @@ public class Hood extends AppCompatActivity {
     private Button mDel;
 
     private int mPos;
-    private int mOperation;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -41,7 +42,6 @@ public class Hood extends AppCompatActivity {
         activ_title.setText(Activity_title);
 
         mPos = getIntent().getIntExtra("ACTIVITY_NAME", 0);
-        mOperation = getIntent().getIntExtra("ACTIVITY_OPERATION",0);
 
         mtvPower = (TextView)findViewById(R.id.tvPower);
         mtvLight = (TextView)findViewById(R.id.tvLight);
@@ -77,28 +77,29 @@ public class Hood extends AppCompatActivity {
         mDel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(mOperation==11) {
-                    MainActivity.itemList.remove(mPos);
-                    MainActivity.itemAdapter.ItemList=MainActivity.itemList;
-                    MainActivity.itemAdapter.notifyDataSetChanged();
-                    onBackPressed();
-                }else{
-                    MainActivity.inactiveList.remove(mPos);
-                    EditText activ_title=(EditText) findViewById(R.id.item_name);
-                    Item a=new Item(activ_title.getText().toString(),1);
-                    MainActivity.itemList.add(a);
-                    MainActivity.itemAdapter.ItemList=MainActivity.itemList;
-                    MainActivity.fab.performClick();
-                    MainActivity.itemAdapter.notifyDataSetChanged();
-                    onBackPressed();
-                }
+                AlertDialog.Builder builder = new AlertDialog.Builder(Hood.this);
+                builder.setTitle("Remove device")
+                        .setMessage("Are you sure?")
+                        .setCancelable(false)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                MainActivity.itemAdapter.ItemList.remove(mPos);
+                                MainActivity.itemAdapter.notifyDataSetChanged();
+                                onBackPressed();
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        });
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
             }
         });
-        if(mOperation==22)
-        {
-            mDel.setText("Add");
-        }
-
 
         mswPower.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override

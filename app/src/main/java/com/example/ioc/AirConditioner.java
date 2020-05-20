@@ -1,7 +1,9 @@
 package com.example.ioc;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -29,8 +31,6 @@ public class AirConditioner extends AppCompatActivity {
 
 	private Button mDel;
 	private int mPos;
-	private int mOperation;
-
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +66,6 @@ public class AirConditioner extends AppCompatActivity {
 		mTxtSpeed.setEnabled(false);
 
 
-		mOperation = getIntent().getIntExtra("ACTIVITY_OPERATION",0);
 		mPos = getIntent().getIntExtra("ACTIVITY_NAME", 0);
 		mBack.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -78,27 +77,29 @@ public class AirConditioner extends AppCompatActivity {
 		mDel.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if(mOperation==11) {
-					MainActivity.itemList.remove(mPos);
-					MainActivity.itemAdapter.ItemList=MainActivity.itemList;
-					MainActivity.itemAdapter.notifyDataSetChanged();
-					onBackPressed();
-				}else{
-					MainActivity.inactiveList.remove(mPos);
-					EditText activ_title=(EditText) findViewById(R.id.item_name);
-					Item a=new Item(activ_title.getText().toString(),1);
-					MainActivity.itemList.add(a);
-					MainActivity.itemAdapter.ItemList=MainActivity.itemList;
-					MainActivity.fab.performClick();
-					MainActivity.itemAdapter.notifyDataSetChanged();
-					onBackPressed();
-				}
+				AlertDialog.Builder builder = new AlertDialog.Builder(AirConditioner.this);
+				builder.setTitle("Remove device")
+						.setMessage("Are you sure?")
+						.setCancelable(false)
+						.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialog, int which) {
+								MainActivity.itemAdapter.ItemList.remove(mPos);
+								MainActivity.itemAdapter.notifyDataSetChanged();
+								onBackPressed();
+							}
+						})
+						.setNegativeButton("No", new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialog, int which) {
+
+							}
+						});
+
+				AlertDialog dialog = builder.create();
+				dialog.show();
 			}
 		});
-		if(mOperation==22)
-		{
-			mDel.setText("Add");
-		}
 
 
 		mSwOnOff.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
