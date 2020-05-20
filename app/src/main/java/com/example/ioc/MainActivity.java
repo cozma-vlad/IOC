@@ -66,6 +66,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 ListView listView=(ListView)findViewById(R.id.ItemListView);
+                editText.setText("");
+
                 if(listselector==1)
                 {
                     itemAdapter.ItemList=inactiveList;
