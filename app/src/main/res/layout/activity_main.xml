@@ -7,7 +7,9 @@
     android:layout_above="@id/fab"
     android:layout_below="@id/ItemListView"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
 
     <LinearLayout
         android:layout_width="match_parent"

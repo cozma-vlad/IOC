@@ -14,14 +14,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="?attr/actionModeCloseDrawable"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         />
 
-    <TextView
+    <EditText
         android:id="@+id/item_name"
         android:layout_width="match_parent"
-        android:layout_height="43dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
-        android:text="Tv"
+        android:text="Television"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textSize="36sp"

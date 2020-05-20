@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.Switch;
@@ -26,13 +27,14 @@ public class Lights extends AppCompatActivity {
 	private ImageButton mBack;
 	private Button mDel;
 	private int mPos;
+	private int mOperation;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.lights);
 		String Activity_title = getIntent().getStringExtra("ACTIVITY_TITLE");
-		TextView activ_title=(TextView)findViewById(R.id.item_name);
+		EditText activ_title = (EditText)findViewById(R.id.item_name);
 		activ_title.setText(Activity_title);
 
 		mSwBedroom = (Switch)findViewById(R.id.swBedroom);
@@ -57,10 +59,11 @@ public class Lights extends AppCompatActivity {
 		mBack.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				finishActivity(0);
+				onBackPressed();
 			}
 		});
 		mPos = getIntent().getIntExtra("ACTIVITY_NAME", 0);
+		mOperation = getIntent().getIntExtra("ACTIVITY_OPERATION",0);
 
 
 		mSwBedroom.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -94,11 +97,28 @@ public class Lights extends AppCompatActivity {
 		mDel.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				MainActivity.itemAdapter.ItemList.remove(mPos);
-				MainActivity.itemAdapter.notifyDataSetChanged();
-				onBackPressed();
+				if(mOperation==11) {
+					MainActivity.itemList.remove(mPos);
+					MainActivity.itemAdapter.ItemList=MainActivity.itemList;
+					MainActivity.itemAdapter.notifyDataSetChanged();
+					onBackPressed();
+				}else{
+					MainActivity.inactiveList.remove(mPos);
+					EditText activ_title=(EditText) findViewById(R.id.item_name);
+					Item a=new Item(activ_title.getText().toString(),1);
+					MainActivity.itemList.add(a);
+					MainActivity.itemAdapter.ItemList=MainActivity.itemList;
+					MainActivity.fab.performClick();
+					MainActivity.itemAdapter.notifyDataSetChanged();
+					onBackPressed();
+				}
 			}
 		});
+		if(mOperation==22)
+		{
+			mDel.setText("Add");
+		}
+
 
 	}
 }

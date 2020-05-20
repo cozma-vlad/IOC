@@ -20,12 +20,13 @@ import java.util.ArrayList;
 // push
 public class MainActivity extends AppCompatActivity {
 
-    ArrayList<Item> itemList=new ArrayList<>();
-    ArrayList<Item> inactiveList=new ArrayList<>();
+    public static ArrayList<Item> itemList=new ArrayList<>();
+    public static ArrayList<Item> inactiveList=new ArrayList<>();
     private int listselector=1;
     private EditText editText;
     public static ItemAdapter itemAdapter;
-    public String operation="del";
+    public int operationdelete=11;
+    public static FloatingActionButton fab;
 
     public void init(){
         Context ctx = getApplicationContext();
@@ -34,16 +35,21 @@ public class MainActivity extends AppCompatActivity {
         itemList.add(new Item("Television",1));
         itemList.add(new Item("Air Conditioner",2));
         itemList.add(new Item("Lights",4));
+//
+//        itemList.add(new Item("Hood2",3));
+//        itemList.add(new Item("Television2",1));
+//        itemList.add(new Item("Air Conditioner2",2));
+//        itemList.add(new Item("Lights2",4));
+//
+//        itemList.add(new Item("Hood3",3));
+//        itemList.add(new Item("Television3",1));
+//        itemList.add(new Item("Air Conditioner3",2));
+//        itemList.add(new Item("Lights3",4));
 
-        itemList.add(new Item("Hood2",3));
-        itemList.add(new Item("Television2",1));
-        itemList.add(new Item("Air Conditioner2",2));
-        itemList.add(new Item("Lights2",4));
-
-        inactiveList.add(new Item("Hood3",3));
-        inactiveList.add(new Item("Television3",1));
-        inactiveList.add(new Item("Air Conditioner3",2));
-        inactiveList.add(new Item("Lights3",4));
+        inactiveList.add(new Item("new Hood",3));
+        inactiveList.add(new Item("new Television",1));
+        inactiveList.add(new Item("new Air Conditioner",2));
+        inactiveList.add(new Item("new Lights",4));
     }
 
 
@@ -57,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         itemAdapter=new ItemAdapter(itemList,this);
 
         editText = (EditText)findViewById(R.id.editText);
-        final FloatingActionButton fab = (FloatingActionButton)findViewById(R.id.fab);
+        fab = (FloatingActionButton)findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,14 +75,14 @@ public class MainActivity extends AppCompatActivity {
                     itemAdapter.notifyDataSetChanged();
                     fab.setImageResource(R.drawable.ic_close_black_24dp);
                     listselector=2;
-                    operation="add";
+                    operationdelete=22;
                 }else{
                     itemAdapter.ItemList=itemList;
                     listView.setBackgroundColor(getResources().getColor(R.color.default_color));
                     itemAdapter.notifyDataSetChanged();
                     fab.setImageResource(R.drawable.ic_add_black_24dp);
                     listselector=1;
-                    operation="del";
+                    operationdelete=11;
 
                 }
             }
@@ -90,33 +96,33 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long arg3) {
                 view.setSelected(true);
                 Intent intent;
-                Item a = itemList.get(position);
+                Item a = itemAdapter.ItemList.get(position);
                 switch (a.Type) {
                     case 1:
                         intent = new Intent(getApplicationContext(), Television.class);
                         intent.putExtra("ACTIVITY_NAME", position);
-                        intent.putExtra("ACTIVITY_OPERATION", operation);
+                        intent.putExtra("ACTIVITY_OPERATION", operationdelete);
                         intent.putExtra("ACTIVITY_TITLE", a.Name);
                         startActivity(intent);
                         break;
                     case 2:
                         intent = new Intent(getApplicationContext(), AirConditioner.class);
                         intent.putExtra("ACTIVITY_NAME", position);
-                        intent.putExtra("ACTIVITY_OPERATION", operation);
+                        intent.putExtra("ACTIVITY_OPERATION", operationdelete);
                         intent.putExtra("ACTIVITY_TITLE", a.Name);
                         startActivity(intent);
                         break;
                     case 3:
                         intent = new Intent(getApplicationContext(), Hood.class);
                         intent.putExtra("ACTIVITY_NAME", position);
-                        intent.putExtra("ACTIVITY_OPERATION", operation);
+                        intent.putExtra("ACTIVITY_OPERATION", operationdelete);
                         intent.putExtra("ACTIVITY_TITLE", a.Name);
                         startActivity(intent);
                         break;
                     case 4:
                         intent = new Intent(getApplicationContext(), Lights.class);
                         intent.putExtra("ACTIVITY_NAME", position);
-                        intent.putExtra("ACTIVITY_OPERATION", operation);
+                        intent.putExtra("ACTIVITY_OPERATION", operationdelete);
                         intent.putExtra("ACTIVITY_TITLE", a.Name);
                         startActivity(intent);
                         break;
