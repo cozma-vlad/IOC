@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.Switch;
@@ -35,7 +36,7 @@ public class AirConditioner extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.air_conditioner);
 		String Activity_title = getIntent().getStringExtra("ACTIVITY_TITLE");
-		TextView activ_title=(TextView)findViewById(R.id.item_name);
+		EditText activ_title=(EditText) findViewById(R.id.item_name);
 		activ_title.setText(Activity_title);
 
 		mTxtOnOff = (TextView)findViewById(R.id.textView_OnOff);

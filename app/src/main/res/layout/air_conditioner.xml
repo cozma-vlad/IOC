@@ -14,77 +14,86 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="?attr/actionModeCloseDrawable"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         />
 
-    <TextView
+
+
+    <EditText
         android:id="@+id/item_name"
         android:layout_width="match_parent"
-        android:layout_height="43dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
         android:text="Air conditioner"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:inputType="text"
+        android:maxLines="1"/>
 
     <Switch
         android:id="@+id/switch2"
         android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_marginStart="92dp"
-        android:layout_marginTop="124dp"
-        app:layout_constraintStart_toEndOf="@+id/textView_OnOff"
-        app:layout_constraintTop_toTopOf="@+id/item_name" />
+        android:layout_height="50dp"
+        android:layout_marginStart="330dp"
+        android:layout_marginTop="180dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView_OnOff"
         android:layout_width="210dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="85dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="180dp"
         android:text="Power: Off"
-        android:layout_marginLeft="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/item_name" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center_vertical"/>
 
     <TextView
         android:id="@+id/temp"
         android:layout_width="210dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="52dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="280dp"
         android:text="Temperature: 20"
-        android:layout_marginLeft="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_OnOff" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center_vertical"/>
 
     <TextView
         android:id="@+id/speed"
         android:layout_width="210dp"
-        android:layout_height="30dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="342dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="380dp"
         android:text="Speed:"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center_vertical"/>
+
 
     <SeekBar
         android:id="@+id/seekBar"
         android:layout_width="100dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="292dp"
-        android:layout_marginTop="52dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="300dp"
+        android:layout_marginTop="280dp"
         android:max="20"
         android:progress="5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch2" />
-
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/decrease"
-        android:layout_width="40dp"
+        android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginStart="268dp"
-        android:layout_marginTop="328dp"
+        android:layout_marginStart="250dp"
+        android:layout_marginTop="380dp"
         android:text="-"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -92,22 +101,24 @@
 
     <TextView
         android:id="@+id/integer_number"
-        android:layout_width="27dp"
-        android:layout_height="58dp"
-        android:layout_marginStart="320dp"
-        android:layout_marginTop="320dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="300dp"
+        android:layout_marginTop="380dp"
         android:text="0"
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center_vertical"
+        android:textAlignment="center"/>
 
     <Button
         android:id="@+id/increase"
-        android:layout_width="40dp"
+        android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginTop="328dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="380dp"
+        android:layout_marginStart="350dp"
         android:text="+"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
